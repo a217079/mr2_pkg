@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find mr2_description)/urdf/common.xacro"/>
+
+  <!-- KRS-3302 ICS -->
+  <xacro:macro name="KRS3302ICS_limit" params="lower_limit:=${-(3*M_PI)/4} upper_limit:=${(3*M_PI)/4}">
+    <limit lower="${lower_limit}" upper="${upper_limit}" effort="${6.7*gravity*0.01}" velocity="${(M_PI/3)/0.16}"/>
+  </xacro:macro>
+
+  <!-- KRS-3304R2 ICS -->
+  <xacro:macro name="KRS3304R2ICS_limit" params="lower_limit:=${-(3*M_PI)/4} upper_limit:=${(3*M_PI)/4}">
+    <limit lower="${lower_limit}" upper="${upper_limit}" effort="${13.9*gravity*0.01}" velocity="${(M_PI/3)/0.11}"/>
+  </xacro:macro>
+
+  <!-- KRS-6003R2HV ICS -->
+  <xacro:macro name="KRS6003R2HVICS_limit" params="lower_limit:=${-(3*M_PI)/4} upper_limit:=${(3*M_PI)/4}">
+    <limit lower="${lower_limit}" upper="${upper_limit}" effort="${67*gravity*0.01}" velocity="${(M_PI/3)/0.22}"/>
+  </xacro:macro>
+
+  <!-- imaginary servo for test -->
+  <xacro:macro name="servo_limit" params="lower_limit:=${-(3*M_PI)/4} upper_limit:=${(3*M_PI)/4}">
+    <limit lower="${lower_limit}" upper="${upper_limit}" effort="100" velocity="${(M_PI/3)/0.22}"/>
+  </xacro:macro>
+
+</robot>

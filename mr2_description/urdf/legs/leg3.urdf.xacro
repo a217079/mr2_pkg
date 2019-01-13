@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find mr2_description)/urdf/servo_motors/servo_motors.xacro"/>
+
+  <xacro:macro name="leg3" params="prefix parent *joint_origin">
+    <joint name="${prefix}_leg3_joint" type="revolute">
+      <xacro:insert_block name="joint_origin"/>
+      <axis xyz="0 1 0"/>
+      <KRS6003R2HVICS_limit/>
+      <parent link="${parent}"/>
+      <child link="${prefix}_leg3_link"/>
+    </joint>
+
+    <link name="${prefix}_leg3_link">
+      <visual>
+        <origin rpy="${M_PI} 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="package://mr2_description/meshes/leg3.STL"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin rpy="${M_PI} 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="package://mr2_description/meshes/leg3.STL"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin rpy="${M_PI} 0 0" xyz="0 0 0"/>
+        <mass value="0.08"/>
+        <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+      </inertial>
+    </link>
+  </xacro:macro>
+
+</robot>
