@@ -1,0 +1,14 @@
+<launch>
+  
+  <!-- Load joint controller configuration from YAML file to parameter sever -->
+  <rosparam file="$(find mr2_control)/config/simple_controller.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" ns="mr2" output="screen" args="joint_state_controller fr_leg1_controller fl_leg1_controller rr_leg1_controller rl_leg1_controller fr_leg2_controller fl_leg2_controller rr_leg2_controller rl_leg2_controller fr_leg3_controller fl_leg3_controller rr_leg3_controller rl_leg3_controller">
+  </node>
+
+  <!-- convert joint states to TF transform for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" ns="/mr2">
+  </node>
+
+</launch>

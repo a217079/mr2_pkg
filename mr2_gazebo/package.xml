@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>mr2_gazebo</name>
+  <version>0.0.0</version>
+  <description>The mr2_gazebo package</description>
+
+  <maintainer email="a217079@ns.kogakuin.ac.jp">Tatsuya Horikoshi</maintainer>
+  <license>BSD</license>
+  <url type="repository">http://github.com/a217079/mr2_pkg</url>
+  
+  <author email="a217079@ns.kogakuin.ac.jp">Tatsuya Horikoshi</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>ros_control</exec_depend>
+  <exec_depend>gazebo_ros_control</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>mr2_control</exec_depend>
+  <exec_depend>mr2_description</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+</package>

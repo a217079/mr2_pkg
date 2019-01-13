@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>mr2_control</name>
+  <version>0.0.0</version>
+  <description>The mr2_control package</description>
+
+  
+  <maintainer email="a217079@ns.kogakuin.ac.jp">Tatsuya Horikoshi</maintainer>
+  <license>BSD</license>
+  <url type="repository">http://github.com/a217079/mr2_pkg</url>
+
+  <author email="a217079@ns.kogakuin.ac.jp">Tatsuya Horikoshi</author> -->
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>joint_state_controller</exec_depend>
+  <exec_depend>position_controllers</exec_depend>
+  <exec_depend>controller_interface</exec_depend>
+  <exec_depend>ros_control</exec_depend>
+  <exec_depend>ros_controllers</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+
+</package>

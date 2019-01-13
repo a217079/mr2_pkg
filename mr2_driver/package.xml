@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>mr2_driver</name>
+  <version>0.0.0</version>
+  <description>The mr2_driver package</description>
+  <maintainer email="a217079@ns.kogakuin.ac.jp">Tatsuya Horikoshi</maintainer>
+  <license>BSD</license>
+  <url type="repository">http://github.com/a217079/mr2_pkg</url>
+  <author email="a217079@ns.kogakuin.ac.jp">Tatsuya Horikoshi</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>cmake_modules</build_depend>
+
+  <exec_depend>message_runtime</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+</package>
