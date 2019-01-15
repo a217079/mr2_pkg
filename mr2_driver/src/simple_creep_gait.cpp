@@ -5,9 +5,9 @@
 
 #define X 300
 #define Y 300
-#define Z -100
+#define Z -150
 #define RANGE 100
-#define Z_UP 50
+#define Z_UP 100
 #define ALPHA -10
 
 void setTarget(int, Vector3d*);
@@ -48,9 +48,9 @@ int main(int argc, char **argv)
     for(int i=0;i<3;i++)
       cmds.deg[i] = theta_fr(i);
     for(int i=0;i<3;i++)
-      cmds.deg[i+3] = theta_fl(i);
+      cmds.deg[i+3] = theta_rr(i);
     for(int i=0;i<3;i++)
-      cmds.deg[i+6] = theta_rr(i);
+      cmds.deg[i+6] = theta_fl(i);
     for(int i=0;i<3;i++)
       cmds.deg[i+9] = theta_rl(i);
 
