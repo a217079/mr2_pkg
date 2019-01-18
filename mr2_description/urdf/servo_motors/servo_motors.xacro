@@ -3,6 +3,11 @@
 
   <xacro:include filename="$(find mr2_description)/urdf/common.xacro"/>
 
+  <!-- KRS-3301 ICS -->
+  <xacro:macro name="KRS3301ICS_limit" params="lower_limit:=${-(3*M_PI)/4} upper_limit:=${(3*M_PI)/4}">
+    <limit lower="${lower_limit}" upper="${upper_limit}" effort="${6.0*gravity*0.01}" velocity="${(M_PI/3)/0.14}"/>
+  </xacro:macro>
+
   <!-- KRS-3302 ICS -->
   <xacro:macro name="KRS3302ICS_limit" params="lower_limit:=${-(3*M_PI)/4} upper_limit:=${(3*M_PI)/4}">
     <limit lower="${lower_limit}" upper="${upper_limit}" effort="${6.7*gravity*0.01}" velocity="${(M_PI/3)/0.16}"/>
@@ -11,6 +16,11 @@
   <!-- KRS-3304R2 ICS -->
   <xacro:macro name="KRS3304R2ICS_limit" params="lower_limit:=${-(3*M_PI)/4} upper_limit:=${(3*M_PI)/4}">
     <limit lower="${lower_limit}" upper="${upper_limit}" effort="${13.9*gravity*0.01}" velocity="${(M_PI/3)/0.11}"/>
+  </xacro:macro>
+
+  <!-- KRS-4034HV ICS -->
+  <xacro:macro name="KRS4034HVICS_limit" params="lower_limit:=${-(3*M_PI)/4} upper_limit:=${(3*M_PI)/4}">
+    <limit lower="${lower_limit}" upper="${upper_limit}" effort="${41.7*gravity*0.01}" velocity="${(M_PI/3)/0.17}"/>
   </xacro:macro>
 
   <!-- KRS-6003R2HV ICS -->

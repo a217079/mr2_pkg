@@ -1,0 +1,47 @@
+<launch>
+  <!-- Load Kondo ICS parameters -->
+  <rosparam file="$(find kondo_driver)/config/mr2_driver.yaml" command="load" ns="kondo_driver"/>
+
+  <!-- Start ICS driver -->
+  <node name="kondo_driver" pkg="kondo_driver" type="kondo_driver_node" args="servo_0 servo_1 servo_2 servo_3 servo_4 servo_5 servo_6 servo_7 servo_8 servo_9 servo_10 servo_11" output="screen">
+    <param name="device" value="/dev/ttyUSB0"/>
+    <param name="loopback" value="false"/>
+  </node>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find kondo_driver)/config/mr2_controller.yaml" command="load"/>
+
+  <!-- Load the position controller -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller joint_0_position_controller joint_1_position_controller joint_2_position_controller joint_3_position_controller joint_4_position_controller joint_5_position_controller joint_6_position_controller joint_7_position_controller joint_8_position_controller joint_9_position_controller joint_10_position_controller joint_11_position_controller"/>
+
+  <!-- Power on -->
+  <node pkg="rosservice" type="rosservice" name="kondo0" args="call --wait /kondo_driver/servo_0/set_power true"/>
+  <node pkg="rosservice" type="rosservice" name="kondo1" args="call --wait /kondo_driver/servo_1/set_power true"/>
+  <node pkg="rosservice" type="rosservice" name="kondo2" args="call --wait /kondo_driver/servo_2/set_power true"/>
+  <node pkg="rosservice" type="rosservice" name="kondo3" args="call --wait /kondo_driver/servo_3/set_power true"/>
+  <node pkg="rosservice" type="rosservice" name="kondo4" args="call --wait /kondo_driver/servo_4/set_power true"/>
+  <node pkg="rosservice" type="rosservice" name="kondo5" args="call --wait /kondo_driver/servo_5/set_power true"/>
+  <node pkg="rosservice" type="rosservice" name="kondo6" args="call --wait /kondo_driver/servo_6/set_power true"/>
+  <node pkg="rosservice" type="rosservice" name="kondo7" args="call --wait /kondo_driver/servo_7/set_power true"/>
+  <node pkg="rosservice" type="rosservice" name="kondo8" args="call --wait /kondo_driver/servo_8/set_power true"/>
+  <node pkg="rosservice" type="rosservice" name="kondo9" args="call --wait /kondo_driver/servo_9/set_power true"/>
+  <node pkg="rosservice" type="rosservice" name="kondo10" args="call --wait /kondo_driver/servo_10/set_power true"/>
+  <node pkg="rosservice" type="rosservice" name="kondo11" args="call --wait /kondo_driver/servo_11/set_power true"/>
+
+  <!-- Start mr2_driver -->
+  <node pkg="mr2_driver" type="mr2_simple_creep_node" name="mr2_simple_creep_node"/>
+  <node pkg="mr2_driver" type="mr2_command_publisher_node" name="mr2_command_publisher_node">
+    <remap from="mr2/fr_leg1_controller/command" to="joint_0_position_controller/command"/>
+    <remap from="mr2/fr_leg2_controller/command" to="joint_1_position_controller/command"/>
+    <remap from="mr2/fr_leg3_controller/command" to="joint_2_position_controller/command"/>
+    <remap from="mr2/rr_leg1_controller/command" to="joint_3_position_controller/command"/>
+    <remap from="mr2/rr_leg2_controller/command" to="joint_4_position_controller/command"/>
+    <remap from="mr2/rr_leg3_controller/command" to="joint_5_position_controller/command"/>
+    <remap from="mr2/fl_leg1_controller/command" to="joint_6_position_controller/command"/>
+    <remap from="mr2/fl_leg2_controller/command" to="joint_7_position_controller/command"/>
+    <remap from="mr2/fl_leg3_controller/command" to="joint_8_position_controller/command"/>
+    <remap from="mr2/rl_leg1_controller/command" to="joint_9_position_controller/command"/>
+    <remap from="mr2/rl_leg2_controller/command" to="joint_10_position_controller/command"/>
+    <remap from="mr2/rl_leg3_controller/command" to="joint_11_position_controller/command"/>
+  </node>
+</launch>

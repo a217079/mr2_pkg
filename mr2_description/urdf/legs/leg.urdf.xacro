@@ -12,7 +12,7 @@
       <xacro:insert_block name="joint_origin"/>
     </xacro:leg1>
     <xacro:leg2 prefix="${prefix}" parent="${prefix}_leg1_link">
-      <origin rpy="${M_PI} 0 0" xyz="0.199 0.0215 -0.0152"/>
+      <origin rpy="0 0 0" xyz="0.199 0.0215 0.0152"/>
     </xacro:leg2>
     <xacro:leg3 prefix="${prefix}" parent="${prefix}_leg2_link">
       <origin rpy="0 0 0" xyz="0.1 0 0"/>

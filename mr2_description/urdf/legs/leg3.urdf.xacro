@@ -14,19 +14,19 @@
 
     <link name="${prefix}_leg3_link">
       <visual>
-        <origin rpy="${M_PI} 0 0" xyz="0 0 0"/>
+        <origin rpy="${M_PI} 0 ${M_PI}" xyz="0 0 0"/>
         <geometry>
           <mesh filename="package://mr2_description/meshes/leg3.STL"/>
         </geometry>
       </visual>
       <collision>
-        <origin rpy="${M_PI} 0 0" xyz="0 0 0"/>
+        <origin rpy="${M_PI} 0 ${M_PI}" xyz="0 0 0"/>
         <geometry>
           <mesh filename="package://mr2_description/meshes/leg3.STL"/>
         </geometry>
       </collision>
       <inertial>
-        <origin rpy="${M_PI} 0 0" xyz="0 0 0"/>
+        <origin rpy="${M_PI} 0 ${M_PI}" xyz="0 0 0"/>
         <mass value="0.4"/>
         <inertia ixx="0.005" ixy="0" ixz="0" iyy="0.007" iyz="0" izz="0.007"/>
       </inertial>

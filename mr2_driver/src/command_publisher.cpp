@@ -60,7 +60,7 @@ int main(int argc, char **argv)
   // subscribe
   ros::Subscriber cmds_sub  = n.subscribe("cmds", 10, cmds_callback); 
 
-  ros::Rate loop_rate(5);
+  ros::Rate loop_rate(20);
 
   while(ros::ok())
   {

@@ -16,22 +16,22 @@
   <!-- Legs -->
   <!-- Front right leg -->
   <xacro:leg prefix="fr" parent="base_link">
-    <origin rpy="0 0 0" xyz="0.114 0.13 0"/>
+    <origin rpy="${M_PI} 0 0" xyz="0.114 0.13 0"/>
   </xacro:leg>
   
   <!-- Front left leg -->
   <xacro:leg prefix="fl" parent="base_link">
-    <origin rpy="0 0 ${M_PI}" xyz="-0.114 0.13 0"/>
+    <origin rpy="${M_PI} 0 ${M_PI}" xyz="-0.114 0.13 0"/>
   </xacro:leg>
 
   <!-- Rear right leg -->
   <xacro:leg prefix="rr" parent="base_link">
-    <origin rpy="0 0 0" xyz="0.114 -0.13 0"/>
+    <origin rpy="${M_PI} 0 0" xyz="0.114 -0.13 0"/>
   </xacro:leg>
 
   <!-- Rear left leg -->
   <xacro:leg prefix="rl" parent="base_link">
-    <origin rpy="0 0 ${M_PI}" xyz="-0.114 -0.13 0"/>
+    <origin rpy="${M_PI} 0 ${M_PI}" xyz="-0.114 -0.13 0"/>
   </xacro:leg>
 
 

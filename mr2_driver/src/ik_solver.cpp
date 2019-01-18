@@ -25,8 +25,8 @@ void IKSolver::setKinematicsInfo(Model model)
       l1 = 60, l2 = 130, l3 = 270;
       break;
     case REAL_MODEL:
-      a = 200, b = 200;
-      l1 = 150, l2 = 100, l3 = 200;
+      a = 228, b = 260;
+      l1 = 200, l2 = 100, l3 = 200;
       break;
     default:
       a = 240, b = 240;
@@ -44,6 +44,7 @@ void IKSolver::inverseKinematics(const Vector3d target)
   double L = L_vec.norm();
   theta(1) = acos(z/L) + acos( (pow(l3,2) - pow(l2,2) - pow(L,2)) / (-2 * l2 * L) ) - M_PI/2;
   theta(2) = acos( (pow(L,2) - pow(l2,2) - pow(l3,2)) / (-2 * l2 * l3) ) - M_PI/2;
+  theta(0) = -theta(0);
 }
 
 Vector3d IKSolver::getRadian() const

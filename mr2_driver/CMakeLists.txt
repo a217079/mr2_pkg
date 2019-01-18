@@ -35,3 +35,7 @@ add_dependencies(mr2_simple_creep_node mr2_driver_generate_messages_cpp)
 add_executable(mr2_command_publisher_node src/command_publisher.cpp)
 target_link_libraries(mr2_command_publisher_node ${catkin_LIBRARIES})
 add_dependencies(mr2_command_publisher_node mr2_driver_generate_messages_cpp)
+
+add_executable(mr2_simple_rotation_node src/simple_rotation.cpp src/ik_solver.cpp src/transformation.cpp)
+target_link_libraries(mr2_simple_rotation_node ${catkin_LIBRARIES})
+add_dependencies(mr2_simple_rotation_node mr2_driver_generate_messages_cpp)
