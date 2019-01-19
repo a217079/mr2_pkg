@@ -3,6 +3,7 @@
   
   <xacro:include filename="$(find mr2_description)/urdf/base/base.urdf.xacro"/>
   <xacro:include filename="$(find mr2_description)/urdf/legs/leg.urdf.xacro"/>
+  <xacro:include filename="$(find mr2_description)/urdf/sensors/imu/imu.urdf.xacro"/>
   
   <!-- =============== Links & Joints =============== -->
 
@@ -35,6 +36,13 @@
   </xacro:leg>
 
 
+  <!-- Sensors -->
+  <!-- IMU -->
+  <xacro:imu id_num="1" parent="base_link">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:imu>
+
+
   <!-- =============== Transmission ===============-->
 
   <xacro:legs_trans prefix="fr"/>
@@ -60,4 +68,6 @@
   <xacro:legs_gazebo prefix="rr"/>
   <xacro:legs_gazebo prefix="rl"/>
 
+  <!-- IMU -->
+  <xacro:imu_gazebo id_num="1"/>
 </robot>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <xacro:include filename="$(find omnibot3_description)/urdf/common.xacro"/>
+  <xacro:include filename="$(find omnibot3_description)/urdf/sensors/imu/imu.gazebo.xacro"/>
+
+  <xacro:macro name="imu" params="id_num parent *joint_origin">
+    <joint name="imu${id_num}_joint" type="fixed">
+      <insert_block name="joint_origin"/>
+      <parent link="${parent}"/>
+      <child link="imu${id_num}_link"/>
+    </joint>
+
+    <link name="imu${id_num}_link">
+      <visual>
+        <geometry>
+          <box size="0.014 0.010 0.004"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.014 0.010 0.004"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <box_inertial mass="0.01" height="0.014" width="0.010" depth="0.004"/>
+      </inertial>
+    </link>
+  </xacro:macro>
+
+</robot>

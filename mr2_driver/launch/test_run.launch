@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <!-- Load Kondo ICS parameters -->
   <rosparam file="$(find kondo_driver)/config/mr2_driver.yaml" command="load" ns="kondo_driver"/>
@@ -29,7 +30,6 @@
   <node pkg="rosservice" type="rosservice" name="kondo11" args="call --wait /kondo_driver/servo_11/set_power true"/>
 
   <!-- Start mr2_driver -->
-  <node pkg="mr2_driver" type="mr2_simple_creep_node" name="mr2_simple_creep_node"/>
   <node pkg="mr2_driver" type="mr2_command_publisher_node" name="mr2_command_publisher_node">
     <remap from="mr2/fr_leg1_controller/command" to="joint_0_position_controller/command"/>
     <remap from="mr2/fr_leg2_controller/command" to="joint_1_position_controller/command"/>
@@ -44,4 +44,5 @@
     <remap from="mr2/rl_leg2_controller/command" to="joint_10_position_controller/command"/>
     <remap from="mr2/rl_leg3_controller/command" to="joint_11_position_controller/command"/>
   </node>
+  <node pkg="mr2_driver" type="mr2_simple_creep_node" name="mr2_simple_creep_node"/>
 </launch>

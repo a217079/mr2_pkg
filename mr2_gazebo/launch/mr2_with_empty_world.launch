@@ -25,4 +25,6 @@
   
   <!-- ros_control launch file -->
   <include file="$(find mr2_control)/launch/mr2_control.launch"/>
+  <node pkg="mr2_driver" type="mr2_simple_creep_node" name="mr2_simple_creep_node"/>
+  <node pkg="mr2_driver" type="mr2_command_publisher_node" name="mr2_command_publisher_node"/>
 </launch>
