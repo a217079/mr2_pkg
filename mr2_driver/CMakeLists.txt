@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(mr2_driver)
 
+add_compile_options(-std=c++11)
+
 find_package(catkin REQUIRED COMPONENTS
   std_msgs
   roscpp
@@ -39,3 +41,19 @@ add_dependencies(mr2_command_publisher_node mr2_driver_generate_messages_cpp)
 add_executable(mr2_simple_rotation_node src/simple_rotation.cpp src/ik_solver.cpp src/transformation.cpp)
 target_link_libraries(mr2_simple_rotation_node ${catkin_LIBRARIES})
 add_dependencies(mr2_simple_rotation_node mr2_driver_generate_messages_cpp)
+
+add_executable(mr2_sand_dune_node src/sand_dune.cpp src/ik_solver.cpp src/transformation.cpp)
+target_link_libraries(mr2_sand_dune_node ${catkin_LIBRARIES})
+add_dependencies(mr2_sand_dune_node mr2_driver_generate_messages_cpp)
+
+add_executable(mr2_normal_gait_node src/normal_gait.cpp src/ik_solver.cpp src/transformation.cpp)
+target_link_libraries(mr2_normal_gait_node ${catkin_LIBRARIES})
+add_dependencies(mr2_normal_gait_node mr2_driver_generate_messages_cpp)
+
+add_executable(mr2_tussock_gait_node src/tussock_gait.cpp src/ik_solver.cpp src/transformation.cpp)
+target_link_libraries(mr2_tussock_gait_node ${catkin_LIBRARIES})
+add_dependencies(mr2_tussock_gait_node mr2_driver_generate_messages_cpp)
+
+add_executable(mr2_csv_node src/csv_gait.cpp src/ik_solver.cpp src/transformation.cpp)
+target_link_libraries(mr2_csv_node ${catkin_LIBRARIES})
+add_dependencies(mr2_csv_node mr2_driver_generate_messages_cpp)

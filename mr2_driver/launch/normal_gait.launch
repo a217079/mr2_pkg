@@ -45,5 +45,5 @@
     <remap from="mr2/rl_leg2_controller/command" to="joint_10_position_controller/command"/>
     <remap from="mr2/rl_leg3_controller/command" to="joint_11_position_controller/command"/>
   </node>
-  <node pkg="mr2_driver" type="mr2_simple_creep_node" name="mr2_simple_creep_node"/>
+  <node pkg="mr2_driver" type="mr2_normal_gait_node" name="mr2_normal_gait_node"/>
 </launch>

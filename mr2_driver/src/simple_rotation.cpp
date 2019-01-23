@@ -21,10 +21,10 @@ int main(int argc, char **argv)
   
   ros::Rate loop_rate(10);
   
-  IKSolver ik_fr(FRONT,RIGHT,REAL_MODEL);
-  IKSolver ik_fl(FRONT,LEFT,REAL_MODEL);
-  IKSolver ik_rr(REAR,RIGHT,REAL_MODEL);
-  IKSolver ik_rl(REAR,LEFT,REAL_MODEL);
+  IKSolver ik_fr(FRONT,RIGHT,REAL_MODEL2);
+  IKSolver ik_fl(FRONT,LEFT,REAL_MODEL2);
+  IKSolver ik_rr(REAR,RIGHT,REAL_MODEL2);
+  IKSolver ik_rl(REAR,LEFT,REAL_MODEL2);
   Vector3d theta_fr;
   Vector3d theta_fl;
   Vector3d theta_rr;

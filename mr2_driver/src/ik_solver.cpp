@@ -28,6 +28,10 @@ void IKSolver::setKinematicsInfo(Model model)
       a = 228, b = 260;
       l1 = 200, l2 = 100, l3 = 200;
       break;
+    case REAL_MODEL2:
+      a = 228, b = 260;
+      l1 = 200, l2 = 100, l3 = 225;
+      break;
     default:
       a = 240, b = 240;
       l1 = 60, l2 = 130, l3 = 270;

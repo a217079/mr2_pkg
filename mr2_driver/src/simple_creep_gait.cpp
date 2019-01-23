@@ -5,7 +5,7 @@
 
 #define X 325
 #define X_SLIDE 65
-#define X_UP 400
+#define X_UP 325
 #define Y 325
 #define Z -230
 #define STRIDE 75
@@ -32,10 +32,10 @@ int main(int argc, char **argv)
   
   ros::Rate loop_rate(2);
 
-  IKSolver ik_fr(FRONT,RIGHT,REAL_MODEL);
-  IKSolver ik_fl(FRONT,LEFT,REAL_MODEL);
-  IKSolver ik_rr(REAR,RIGHT,REAL_MODEL);
-  IKSolver ik_rl(REAR,LEFT,REAL_MODEL);
+  IKSolver ik_fr(FRONT,RIGHT,REAL_MODEL2);
+  IKSolver ik_fl(FRONT,LEFT,REAL_MODEL2);
+  IKSolver ik_rr(REAR,RIGHT,REAL_MODEL2);
+  IKSolver ik_rl(REAR,LEFT,REAL_MODEL2);
   Vector3d theta_fr;
   Vector3d theta_fl;
   Vector3d theta_rr;
@@ -56,31 +56,24 @@ int main(int argc, char **argv)
   theta_rr = ik_rr.getDegree();
   theta_rl = ik_rl.getDegree(); 
 
-  for(int i=0;i<3;i++)
-    cmds.deg[i] = theta_fr(i);
-  for(int i=0;i<3;i++)
-    cmds.deg[i+3] = theta_rr(i);
-  for(int i=0;i<3;i++)
-    cmds.deg[i+6] = theta_fl(i);
-  for(int i=0;i<3;i++)
-    cmds.deg[i+9] = theta_rl(i);
-  
-  cmds.deg[0] -= 10;
-  cmds.deg[1] -= -3;
-  cmds.deg[2] -= -4;
-  cmds.deg[3] -= -3;
-  cmds.deg[4] -= -11;
-  cmds.deg[5] -= 4.5;
-  cmds.deg[6] -= -9.5;
-  cmds.deg[7] -= 0;
-  cmds.deg[8] -= -12;
-  cmds.deg[9] -= 1;
-  cmds.deg[10] -= 8.5;
-  cmds.deg[11] -= -1;
-  
+  XmlRpc::XmlRpcValue offsets;
+  n.getParam("/offsets", offsets); 
+  cmds.deg[0] = theta_fr(0) - (double)offsets["servo0"];
+  cmds.deg[1] = theta_fr(1) - (double)offsets["servo1"];
+  cmds.deg[2] = theta_fr(2) - (double)offsets["servo2"];
+  cmds.deg[3] = theta_rr(0) - (double)offsets["servo3"];
+  cmds.deg[4] = theta_rr(1) - (double)offsets["servo4"];
+  cmds.deg[5] = theta_rr(2) - (double)offsets["servo5"];
+  cmds.deg[6] = theta_fl(0) - (double)offsets["servo6"];
+  cmds.deg[7] = theta_fl(1) - (double)offsets["servo7"];
+  cmds.deg[8] = theta_fl(2) - (double)offsets["servo8"];
+  cmds.deg[9] = theta_rl(0) - (double)offsets["servo9"];
+  cmds.deg[10] = theta_rl(1) - (double)offsets["servo10"];
+  cmds.deg[11] = theta_rl(2) - (double)offsets["servo11"];
+
   ros::Duration(5.0).sleep();
   cmds_pub.publish(cmds);
-  ros::Duration(5.0).sleep();
+  ros::Duration(8.0).sleep();
 
   while(ros::ok())
   {
@@ -94,28 +87,21 @@ int main(int argc, char **argv)
     theta_rr = ik_rr.getDegree();
     theta_rl = ik_rl.getDegree(); 
 
-    for(int i=0;i<3;i++)
-      cmds.deg[i] = theta_fr(i);
-    for(int i=0;i<3;i++)
-      cmds.deg[i+3] = theta_rr(i);
-    for(int i=0;i<3;i++)
-      cmds.deg[i+6] = theta_fl(i);
-    for(int i=0;i<3;i++)
-      cmds.deg[i+9] = theta_rl(i);
-    
-    cmds.deg[0] -= 10;
-    cmds.deg[1] -= -3;
-    cmds.deg[2] -= -4;
-    cmds.deg[3] -= -3;
-    cmds.deg[4] -= -11;
-    cmds.deg[5] -= 4.5;
-    cmds.deg[6] -= -9.5;
-    cmds.deg[7] -= 0;
-    cmds.deg[8] -= -12;
-    cmds.deg[9] -= 1;
-    cmds.deg[10] -= 8.5;
-    cmds.deg[11] -= -1;
-    
+    XmlRpc::XmlRpcValue offsets;
+    n.getParam("/offsets", offsets); 
+    cmds.deg[0] = theta_fr(0) - (double)offsets["servo0"];
+    cmds.deg[1] = theta_fr(1) - (double)offsets["servo1"];
+    cmds.deg[2] = theta_fr(2) - (double)offsets["servo2"];
+    cmds.deg[3] = theta_rr(0) - (double)offsets["servo3"];
+    cmds.deg[4] = theta_rr(1) - (double)offsets["servo4"];
+    cmds.deg[5] = theta_rr(2) - (double)offsets["servo5"];
+    cmds.deg[6] = theta_fl(0) - (double)offsets["servo6"];
+    cmds.deg[7] = theta_fl(1) - (double)offsets["servo7"];
+    cmds.deg[8] = theta_fl(2) - (double)offsets["servo8"];
+    cmds.deg[9] = theta_rl(0) - (double)offsets["servo9"];
+    cmds.deg[10] = theta_rl(1) - (double)offsets["servo10"];
+    cmds.deg[11] = theta_rl(2) - (double)offsets["servo11"];
+
     cmds_pub.publish(cmds);
 
     step = (step + 1) % 15;

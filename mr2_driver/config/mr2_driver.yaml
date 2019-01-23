@@ -1,0 +1,119 @@
+servo_0:
+  id: 0
+  joint_name: joint_0
+  min_angle: -135
+  max_angle:  135
+  stretch: 127
+  speed: 80
+  current_limit: 63
+  temperature_limit: 30
+
+servo_1:
+  id: 1
+  joint_name: joint_1
+  min_angle: -135
+  max_angle:  135
+  stretch: 127
+  speed: 80
+  current_limit: 63
+  temperature_limit: 30
+
+servo_2:
+  id: 2
+  joint_name: joint_2
+  min_angle: -135
+  max_angle:  135
+  stretch: 127
+  speed: 80
+  current_limit: 63
+  temperature_limit: 30
+
+servo_3:
+  id: 3
+  joint_name: joint_3
+  min_angle: -135
+  max_angle:  135
+  stretch: 127
+  speed: 80
+  current_limit: 63
+  temperature_limit: 30
+
+servo_4:
+  id: 4
+  joint_name: joint_4
+  min_angle: -135
+  max_angle:  135
+  stretch: 127
+  speed: 80
+  current_limit: 63
+  temperature_limit: 30
+
+servo_5:
+  id: 5
+  joint_name: joint_5
+  min_angle: -135
+  max_angle:  135
+  stretch: 127
+  speed: 80
+  current_limit: 63
+  temperature_limit: 30
+
+servo_6:
+  id: 6
+  joint_name: joint_6
+  min_angle: -135
+  max_angle:  135
+  stretch: 127
+  speed: 80
+  current_limit: 63
+  temperature_limit: 30
+
+servo_7:
+  id: 7
+  joint_name: joint_7
+  min_angle: -135
+  max_angle:  135
+  stretch: 127
+  speed: 80
+  current_limit: 63
+  temperature_limit: 30
+
+servo_8:
+  id: 8
+  joint_name: joint_8
+  min_angle: -135
+  max_angle:  135
+  stretch: 127
+  speed: 80
+  current_limit: 63
+  temperature_limit: 30
+
+servo_9:
+  id: 9
+  joint_name: joint_9
+  min_angle: -135
+  max_angle:  135
+  stretch: 127
+  speed: 80
+  current_limit: 63
+  temperature_limit: 30
+
+servo_10:
+  id: 10
+  joint_name: joint_10
+  min_angle: -135
+  max_angle:  135
+  stretch: 127
+  speed: 80
+  current_limit: 63
+  temperature_limit: 30
+
+servo_11:
+  id: 11
+  joint_name: joint_11
+  min_angle: -135
+  max_angle:  135
+  stretch: 127
+  speed: 80
+  current_limit: 63
+  temperature_limit: 30

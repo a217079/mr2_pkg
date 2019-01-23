@@ -25,5 +25,9 @@
   
   <!-- ros_control launch file -->
   <include file="$(find mr2_control)/launch/mr2_control.launch"/>
+  <node pkg="mr2_driver" type="mr2_sand_dune_node" name="mr2_sand_dune_node"/>
+  
+  <!-- mr2_driver -->
   <rosparam file="$(find mr2_driver)/config/simbot_offsets.yaml" command="load"/>
+  <node pkg="mr2_driver" type="mr2_command_publisher_node" name="mr2_command_publisher_node"/>
 </launch>
