@@ -57,3 +57,7 @@ add_dependencies(mr2_tussock_gait_node mr2_driver_generate_messages_cpp)
 add_executable(mr2_csv_node src/csv_gait.cpp src/ik_solver.cpp src/transformation.cpp)
 target_link_libraries(mr2_csv_node ${catkin_LIBRARIES})
 add_dependencies(mr2_csv_node mr2_driver_generate_messages_cpp)
+
+add_executable(mr2_setting_node src/setting.cpp)
+target_link_libraries(mr2_setting_node ${catkin_LIBRARIES})
+add_dependencies(mr2_setting_node mr2_driver_generate_messages_cpp)

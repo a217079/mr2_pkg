@@ -48,12 +48,12 @@ int main(int argc, char **argv)
   ros::Publisher cmds_pub = n.advertise<mr2_driver::LegsCommands>("cmds", 10);
   mr2_driver::LegsCommands cmds;
 
-  ros::Rate loop_rate(2);
+  ros::Rate loop_rate(10);
 
-  IKSolver ik_fr(FRONT,RIGHT,REAL_MODEL2);
-  IKSolver ik_fl(FRONT,LEFT,REAL_MODEL2);
-  IKSolver ik_rr(REAR,RIGHT,REAL_MODEL2);
-  IKSolver ik_rl(REAR,LEFT,REAL_MODEL2);
+  IKSolver ik_fr(FRONT,RIGHT,REAL_MODEL3);
+  IKSolver ik_fl(FRONT,LEFT,REAL_MODEL3);
+  IKSolver ik_rr(REAR,RIGHT,REAL_MODEL3);
+  IKSolver ik_rl(REAR,LEFT,REAL_MODEL3);
   Vector3d theta_fr;
   Vector3d theta_fl;
   Vector3d theta_rr;

@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<robot name="mr2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <xacro:include filename="$(find mr2_description)/urdf/base/base_2.urdf.xacro"/>
+  <xacro:include filename="$(find mr2_description)/urdf/legs/leg_2.urdf.xacro"/>
+  <xacro:include filename="$(find mr2_description)/urdf/sensors/imu/imu.urdf.xacro"/>
+  
+  <!-- =============== Links & Joints =============== -->
+
+  <!-- Base -->
+  <link name="base_footprint"/>
+  <xacro:base parent="base_footprint">
+    <origin xyz="0 0 0"/>
+  </xacro:base>
+
+
+  <!-- Legs -->
+  <!-- Front right leg -->
+  <xacro:leg prefix="fr" parent="base_link">
+    <origin rpy="0 ${M_PI} 0" xyz="0.084 -0.084 -0.0396"/>
+  </xacro:leg>
+  
+  <!-- Front left leg -->
+  <xacro:leg prefix="fl" parent="base_link">
+    <origin rpy="0 ${M_PI} ${M_PI}" xyz="0.084 0.084 -0.0396"/>
+  </xacro:leg>
+
+  <!-- Rear right leg -->
+  <xacro:leg prefix="rr" parent="base_link">
+    <origin rpy="0 ${M_PI} 0" xyz="-0.084 -0.084 -0.0396"/>
+  </xacro:leg>
+
+  <!-- Rear left leg -->
+  <xacro:leg prefix="rl" parent="base_link">
+    <origin rpy="0 ${M_PI} ${M_PI}" xyz="-0.084 0.084 -0.0396"/>
+  </xacro:leg>
+
+
+  <!-- Sensors -->
+  <!-- IMU -->
+  <xacro:imu id_num="1" parent="base_link">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:imu>
+
+
+  <!-- =============== Transmission ===============-->
+
+  <xacro:legs_trans prefix="fr"/>
+  <xacro:legs_trans prefix="fl"/>
+  <xacro:legs_trans prefix="rr"/>
+  <xacro:legs_trans prefix="rl"/>
+
+
+  <!-- =============== Gazebo ===============-->
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>mr2</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  <!-- Base -->
+  <xacro:base_gazebo/>
+
+  <!-- Legs -->
+  <xacro:legs_gazebo prefix="fr"/>
+  <xacro:legs_gazebo prefix="fl"/>
+  <xacro:legs_gazebo prefix="rr"/>
+  <xacro:legs_gazebo prefix="rl"/>
+
+  <!-- IMU -->
+  <xacro:imu_gazebo id_num="1"/>
+</robot>

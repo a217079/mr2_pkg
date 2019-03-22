@@ -6,29 +6,32 @@
   <xacro:macro name="leg2" params="prefix parent *joint_origin">
     <joint name="${prefix}_leg2_joint" type="revolute">
       <xacro:insert_block name="joint_origin"/>
-      <axis xyz="0 1 0"/>
-      <xacro:servo_limit/>
+      <axis xyz="1 0 0"/>
+      <xacro:KRS4034HVICS_limit/>
       <parent link="${parent}"/>
       <child link="${prefix}_leg2_link"/>
     </joint>
 
     <link name="${prefix}_leg2_link">
       <visual>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
         <geometry>
-          <mesh filename="package://mr2_description/meshes/leg2.STL"/>
+          <mesh filename="package://mr2_description/meshes/leg2_2.STL"/>
         </geometry>
       </visual>
       <collision>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
         <geometry>
-          <mesh filename="package://mr2_description/meshes/leg2.STL"/>
+          <mesh filename="package://mr2_description/meshes/leg2_2.STL"/>
         </geometry>
       </collision>
       <inertial>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
-        <mass value="0.08"/>
-        <inertia ixx="0.004" ixy="0" ixz="0" iyy="0.002" iyz="0" izz="0.003"/>
+        <origin rpy="0.00000 0.00000 1.57079" xyz="-0.01969 -0.12100 0"/>
+        <mass value="0.23699"/>
+        <inertia
+          ixx="0.00006523998" ixy="0.00000000000" ixz="0.00000000000"
+          iyy="0.00205800016" iyz="0.00000000000"
+          izz="0.00208625265"/>
       </inertial>
     </link>
   </xacro:macro>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <xacro:include filename="$(find mr2_description)/urdf/legs/leg1_2.urdf.xacro"/>
+  <xacro:include filename="$(find mr2_description)/urdf/legs/leg2_2.urdf.xacro"/>
+  <xacro:include filename="$(find mr2_description)/urdf/legs/leg3_2.urdf.xacro"/>
+  <xacro:include filename="$(find mr2_description)/urdf/legs/leg_2.gazebo.xacro"/>
+  <xacro:include filename="$(find mr2_description)/urdf/legs/leg_2.transmission.xacro"/>
+
+  <xacro:macro name="leg" params="prefix parent *joint_origin">
+    <xacro:leg1 prefix="${prefix}" parent="${parent}">
+      <xacro:insert_block name="joint_origin"/>
+    </xacro:leg1>
+    <xacro:leg2 prefix="${prefix}" parent="${prefix}_leg1_link">
+      <origin rpy="0 0 0" xyz="0.0198 -0.050 -0.0198"/>
+    </xacro:leg2>
+    <xacro:leg3 prefix="${prefix}" parent="${prefix}_leg2_link">
+      <origin rpy="0 0 0" xyz="-0.039 -0.242 0"/>
+    </xacro:leg3>
+  </xacro:macro>
+
+</robot>

@@ -20,6 +20,7 @@ enum Model
   VIRTUAL_MODEL,
   REAL_MODEL,
   REAL_MODEL2,
+  REAL_MODEL3,
 };
 
 class IKSolver
